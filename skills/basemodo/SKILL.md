@@ -14,7 +14,7 @@ Basemodo deploys a folder and gives back a URL. Every App gets its own machine w
 
 ## The CLI or the MCP
 
-- **With a terminal, run the CLI**: `basemodo <command> --json`, and act on the JSON it prints. `basemodo version --json` says whether it is installed; when it is not, give the person the install line to run in their terminal: `curl -fsSL https://basemodo.com/install | sh` on macOS and Linux, or `irm https://basemodo.com/install.ps1 | iex` in Windows' PowerShell. It installs the CLI, sets their agents up with `basemodo setup` and signs them in.
+- **With a terminal, run the CLI**: `basemodo <command> --json`, and act on the JSON it prints. `basemodo version --json` says whether it is installed; when it is not, offer to install it, and once the person agrees run the install line yourself: `curl -fsSL https://basemodo.com/install | sh` on macOS and Linux, or `irm https://basemodo.com/install.ps1 | iex` in Windows' PowerShell. It installs the CLI, sets their agents up with `basemodo setup` and signs them in. Until a new terminal finds `basemodo` on the PATH, run it by the path the installer prints, then carry on with the request.
 - **Without a terminal (a chat app), call Basemodo's MCP tools.** Each tool is a command: its words joined by `_` (`env set` is `env_set`), the command's arguments as JSON keys, and the answer the command prints with `--json`. The Remote MCP (`https://mcp.basemodo.com`) has no folder of the person's: its `deploy` deploys a GitHub repository (`repository`), and every tool that acts on an App takes `app`.
 - Keep to one of the two for a whole task.
 
