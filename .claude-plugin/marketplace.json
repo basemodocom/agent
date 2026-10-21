@@ -1,0 +1,16 @@
+{
+  "name": "basemodo",
+  "description": "Deploy, share and fix Apps on Basemodo, the cloud for small software, from your agent: Basemodo's Skills, and its Remote MCP to act through.",
+  "owner": {
+    "name": "Basemodo",
+    "url": "https://basemodo.com"
+  },
+  "plugins": [
+    {
+      "name": "basemodo",
+      "source": "./",
+      "description": "Deploy, share and fix Apps on Basemodo, the cloud for small software, from your agent: Basemodo's Skills, and its Remote MCP to act through.",
+      "version": "0.1.0"
+    }
+  ]
+}

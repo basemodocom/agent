@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "basemodo": {
+      "type": "http",
+      "url": "https://mcp.basemodo.com"
+    }
+  }
+}

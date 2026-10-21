@@ -1,0 +1,13 @@
+{
+  "name": "basemodo",
+  "version": "0.1.0",
+  "description": "Deploy, share and fix Apps on Basemodo, the cloud for small software, from your agent: Basemodo's Skills, and its Remote MCP to act through.",
+  "mcpServers": {
+    "basemodo": {
+      "httpUrl": "https://mcp.basemodo.com",
+      "oauth": {
+        "enabled": true
+      }
+    }
+  }
+}
