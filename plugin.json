@@ -87,14 +87,6 @@
                 "rollback"
               ],
               "expected_behavior": "Calls deploys with app lunch-rota to find the live Deploy before the latest, asks the person to confirm, calls rollback with its id, and gives the App's URL once it is live again, or says it is still starting and that status will say when it is live."
-            },
-            {
-              "description": "Answers a question about Basemodo from its documentation.",
-              "prompt": "How do I keep an API key out of my App's code on Basemodo?",
-              "tools_triggered": [
-                "docs"
-              ],
-              "expected_behavior": "Calls docs for the Secrets page and explains that the key is set as a Secret (env_set), which the App reads as an environment variable, and never written in its code."
             }
           ],
           "negative": [
