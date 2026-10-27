@@ -18,7 +18,7 @@ basemodo env set STRIPE_KEY
 
 Your App gets new or changed Secrets **the next time it starts**: the running version keeps the values it started with. Every start reads them again: a Deploy, waking from sleep, or a restart. So set them, then run [`basemodo restart`](https://basemodo.com/docs/cli/restart) (no build), or `basemodo deploy`.
 
-In your code they are ordinary environment variables: `process.env.STRIPE_KEY` in Node, `os.environ["STRIPE_KEY"]` in Python.
+In your code they are ordinary environment variables, read by name like any other: from `process.env` in Node, `os.environ` in Python.
 
 ## Listing and removing
 
