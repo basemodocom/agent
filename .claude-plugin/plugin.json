@@ -1,6 +1,6 @@
 {
   "name": "basemodo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Deploy, share and fix Apps on Basemodo, the cloud for small software, from your agent: Basemodo's Skills, and its Remote MCP to act through.",
   "author": {
     "name": "Basemodo",
@@ -15,5 +15,11 @@
     "hosting",
     "apps",
     "mcp"
-  ]
+  ],
+  "displayName": "Basemodo",
+  "icon": "./assets/icon.png",
+  "documentationUrl": "https://basemodo.com/docs/mcp/claude-ai",
+  "supportUrl": "https://basemodo.com/support",
+  "privacyPolicyUrl": "https://basemodo.com/privacy",
+  "termsOfServiceUrl": "https://basemodo.com/terms"
 }

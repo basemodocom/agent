@@ -64,7 +64,7 @@ Plain HTTP, no token, no API key. The address answers only inside the calling Ap
 
 ## How a call works
 
-Basemodo lets a call through only to the exposed paths, and tells the called App who is calling in the `x-basemodo-caller` header (the calling App's slug). A Caller's request never carries a visitor's identity headers, and a visitor's request never carries `x-basemodo-caller`: Basemodo removes it from every request that comes from outside.
+Basemodo lets a call through only to the exposed paths, and tells the called App who is calling in the `x-basemodo-caller` header (the calling App's slug). A Caller's request never carries a visitor's identity headers, and a visitor's request never carries `x-basemodo-caller`: Basemodo removes it from every request that comes from outside. A Caller's `X-Forwarded-For` is the calling App's internal address, its Machine's, which may change with each Deploy: tell Callers apart by `x-basemodo-caller`, never by address.
 
 A call wakes the called App if it sleeps, as a visitor's request does, and shows in its [Logs](https://basemodo.com/docs/cli/logs) with the Caller's name: `[basemodo] Caller reports called GET /api/contacts`. A call Basemodo refuses never reaches the called App, and answers JSON with a stable code and the fix:
 

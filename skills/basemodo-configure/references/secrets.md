@@ -10,10 +10,10 @@ A Secret is a value your App needs and nobody else should see. Basemodo keeps it
 basemodo env set STRIPE_KEY=sk_live_123 MAILER_TOKEN=abc
 ```
 
-All the names in one command are set together, or none if one is wrong. To keep a value out of your shell's history, give the name alone and type or pipe the value:
+All the names in one command are set together, or none if one is wrong. To keep a value out of your shell's history, give the name alone and type or paste the value when it asks (then Enter and Ctrl-D):
 
 ```sh
-basemodo env set STRIPE_KEY < stripe-key.txt
+basemodo env set STRIPE_KEY
 ```
 
 Your App gets new or changed Secrets **the next time it starts**: the running version keeps the values it started with. Every start reads them again: a Deploy, waking from sleep, or a restart. So set them, then run [`basemodo restart`](https://basemodo.com/docs/cli/restart) (no build), or `basemodo deploy`.

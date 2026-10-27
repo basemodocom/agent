@@ -2,7 +2,7 @@
 
 From a folder on your computer to a link you can send to your team, in five steps and plain words. No servers, databases or login code to set up.
 
-You built something: a tracker for your team, a page of numbers, a small tool. Maybe an AI agent wrote it for you. It works on your computer, and now you want other people to use it. That is what Basemodo does. If you work with an agent, you can also let it do all of this for you: see [Deploying with an agent](https://basemodo.com/docs/agents).
+You built something: a tracker for your team, a page of numbers, a small tool. Maybe an AI agent wrote it for you. It works on your computer, and now you want other people to use it. That is what Basemodo does. If you work with an agent, you can also let it do all of this for you: [Which agent do you use?](https://basemodo.com/docs/mcp#which-agent-do-you-use) sets it up.
 
 ## What you need
 
@@ -23,21 +23,15 @@ On Windows, type this in PowerShell instead:
 irm https://basemodo.com/install.ps1 | iex
 ```
 
-It puts `basemodo` in a folder of your own, with no password to give, and says where. If it tells you to open a new terminal, do that. To check the command is there:
+It puts `basemodo` in a folder of your own, with no password to give, and says where. Then it sets up the AI agents you have, if any, and signs you in ([`basemodo setup`](https://basemodo.com/docs/skills)): it asks where your agents should know Basemodo (press Enter for every project), and your browser opens on Basemodo. Sign in with your email (Basemodo sends you a link, no password), or with Google or GitHub, then approve this computer. The terminal says who you are signed in as. You do this once per computer: it stays signed in for 30 days.
+
+If it tells you to open a new terminal, do that. To check the command is there:
 
 ```sh
 basemodo --version
 ```
 
-It answers with its version, like `basemodo 0.1.0`. Typing the same install line again later upgrades it to the newest version.
-
-Then sign in:
-
-```sh
-basemodo login
-```
-
-Your browser opens on Basemodo. Sign in with your email (Basemodo sends you a link, no password), or with Google or GitHub, then approve this computer. The terminal says who you are signed in as. You do this once per computer: it stays signed in for 30 days. ([`basemodo login`](https://basemodo.com/docs/cli/login) has the details, like signing in over SSH.)
+It answers with its version, like `basemodo 0.1.0`. Typing the same install line again later upgrades it to the newest version. To sign in again later, type `basemodo login` ([`basemodo login`](https://basemodo.com/docs/cli/login) has the details, like signing in over SSH).
 
 ## 2. Go to your folder
 
@@ -88,5 +82,5 @@ What your App saves on its disk (in `/data`, where its database lives) stays thr
 
 - Something keeps secrets, like an API key? Keep them out of your code with [Secrets](https://basemodo.com/docs/secrets).
 - Want to see what your App prints, or whether it is up? [`basemodo logs`](https://basemodo.com/docs/cli/logs) and [`basemodo status`](https://basemodo.com/docs/cli/status). To open it in your browser, [`basemodo open`](https://basemodo.com/docs/cli/open); to start it again, [`basemodo restart`](https://basemodo.com/docs/cli/restart).
-- Want an agent to do all this for you? [Deploying with an agent](https://basemodo.com/docs/agents).
+- Want an agent to do all this for you? [Which agent do you use?](https://basemodo.com/docs/mcp#which-agent-do-you-use), then [Deploying with an agent](https://basemodo.com/docs/agents).
 - Every command, with examples: [the CLI](https://basemodo.com/docs/cli).

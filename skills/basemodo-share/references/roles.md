@@ -36,6 +36,12 @@ A Workspace Member who also manages the Workspace: its people, its bill, and eve
 
 The Admins of a Workspace can do everything an Owner can on every App the Workspace owns.
 
+## When an App changes hands
+
+A Transfer moves an App into a Workspace, or gives it to another Person, who accepts it (an Admin of the Workspace, or that Person). Only its Owner changes: its Members and Editors stay. Before accepting, the receiver sees the App's Editors (`basemodo transfers list`, or the Transfer on basemodo.com) and can take any of them off in the same step (`basemodo transfers accept ID --remove-editor EMAIL`), so whoever gave the App keeps no way in through an Editor they invited. Moved into a Workspace, whoever asked becomes one of its Editors.
+
+A Person who leaves a Workspace, or is taken out of it, keeps no role on its Apps, not even one they were invited to as an Editor or a Member. Deleting an App cancels its pending Transfer.
+
 ## Everyone is a Person
 
 Owners, Members, Editors and Admins are all Persons: one email is one Person, whether they sign in by email link, Google or GitHub, and whether they own Apps or were only ever invited to one. Members never pay.

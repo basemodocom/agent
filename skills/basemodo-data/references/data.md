@@ -56,11 +56,13 @@ basemodo run -- ls -la /data
 
 Its output comes back as it runs, and the command exits as the remote command did. It may run up to 60 seconds, or longer with `--timeout` (at most 15 minutes). See [`basemodo run`](https://basemodo.com/docs/cli/run).
 
+Your agent has the same `run` tool, which answers within 45 seconds, before any agent's app gives up on it. A longer command keeps running: the agent gets what it printed so far and the command's id, and follows it with `runs` until it ends. While it runs, the agent's same command is refused, so it never runs twice; `basemodo runs <id>` waits for it in your terminal. See [`basemodo runs`](https://basemodo.com/docs/cli/runs).
+
 Basemodo never runs migrations by itself when a Deploy starts: run them with `basemodo run` when you choose, so a bad migration never runs twice.
 
 ## Backups: `basemodo backup` and `basemodo restore`
 
-Basemodo backs every App's data up once a day: the database and every file on its disk, kept 7 days (14 on Pro and Workspace, see [Plans](https://basemodo.com/docs/plans#logs-backups-and-cron-retries)), all of an App's Backups together within ten times its disk: past that, the oldest go first. On Pro and Workspace it also backs each App up every hour, each of those kept 24 hours: the App's Backups page shows them under Last 24 hours, and they restore like any other. Neither wakes an App that sleeps. Take one yourself before something risky, then put the data back if it goes wrong:
+Basemodo backs every App's data up once a day: the database and every file on its disk, kept 7 days (14 on Pro and Workspace, see [Plans](https://basemodo.com/docs/plans#logs-backups-and-cron-retries)), all of an App's Backups together within ten times its disk: past that, the oldest go first. On Pro and Workspace it also backs each App up every hour, each of those kept 24 hours: the App's Backups page shows them under Last 24 hours, and they restore like any other. Neither wakes an App that sleeps, and an App that has not run since its newest Backup gets no new one: nothing could have changed its data. That newest Backup is kept past its 7 or 14 days, until the App runs and is backed up again (or 13 days on, when Basemodo takes it anew), so an App asleep for weeks always has one to restore; `basemodo backups` says it is kept until the App's next Backup. Take one yourself before something risky, then put the data back if it goes wrong:
 
 ```sh
 basemodo backup                  # prints the Backup's id
@@ -73,7 +75,7 @@ Restoring replaces everything written since the Backup; the Backup itself stays,
 
 ## Downloading your data
 
-The App's Data Download is a `.tar.gz` of everything on its disk as it is now, with the database copied by SQLite's own online backup, so it is consistent even while the App writes to it. Open `data/app.db` with any SQLite tool. Only the App's Owner downloads it: from a terminal, or by asking your agent, which has the same `download` tool, it lands as `<app>-data-<date>.tar.gz` in the folder you are in:
+The App's Data Download is a `.tar.gz` of every file and folder on its disk as it is now (links and other special files are left out), with the database copied by SQLite's own online backup, so it is consistent even while the App writes to it. Open `data/app.db` with any SQLite tool. Only the App's Owner downloads it: from a terminal, or by asking your agent, which has the same `download` tool, it lands as `<app>-data-<date>.tar.gz` in the folder you are in:
 
 ```sh
 basemodo download                     # lunch-rota-data-2026-10-20.tar.gz, here
