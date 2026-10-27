@@ -3,7 +3,22 @@
   "mcpServers": {
     "basemodo": {
       "type": "streamable-http",
-      "url": "https://mcp.basemodo.com"
+      "url": "https://mcp.basemodo.com",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "oauth",
+            "client": {
+              "mode": "dcr"
+            },
+            "baseScopes": [
+              "basemodo",
+              "openid",
+              "email"
+            ]
+          }
+        }
+      }
     }
   }
 }

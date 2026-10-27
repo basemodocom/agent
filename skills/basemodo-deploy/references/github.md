@@ -6,7 +6,7 @@ Besides deploying a folder from your computer, an App can take its code from Git
 
 ## Linking a repository
 
-Basemodo reads your repositories through Basemodo's GitHub App, which you install once on your GitHub account or organization, choosing which repositories it may read. Every App you link afterwards reuses it, so linking a second repository is instant.
+Basemodo reads your repositories through Basemodo's GitHub App, which you install once on your GitHub account or organization, choosing which repositories it may read. Every App you link afterwards reuses it, so linking a second repository is instant. You link only repositories your own GitHub user can read: when your organization installed the GitHub App, the repositories of it you cannot read on GitHub stay out of reach.
 
 The quickest way is from a clone of the repository on your computer. [`basemodo deploy`](https://basemodo.com/docs/cli/deploy) notices the folder's GitHub remote and offers to link the App to that repository, the branch you are on and the folder you are in, then deploys as usual:
 
@@ -24,8 +24,10 @@ You can also link, change or unlink from the GitHub section of the App's page on
 
 - A push to the linked branch deploys the commit pushed. Pushes to other branches do nothing, and for an App linked to a folder, neither do pushes that change nothing in it.
 - Pushes in a row queue: Deploys of one App run one at a time, so the latest push ends live.
+- GitHub's tarball of the commit holds the whole repository, whatever folder is linked, and is held to an upload's limit: at most 50 MB. A larger one fails with [`source_too_large`](https://basemodo.com/docs/errors#source_too_large); deploy from a clone instead, which uploads only the App's folder.
 - A failed build is reported by email and in your notifications, with the build log in the App's [Logs](https://basemodo.com/docs/cli/logs).
 - Uninstalling the GitHub App, or taking the repository away from it, disconnects the App until it is given back; renaming or transferring the repository keeps the link.
+- A push deploys on behalf of whoever linked the App, so only while they may still deploy it and their GitHub user can still read the repository: once an Editor who linked it is removed, pushes fail with [`github_linker_removed`](https://basemodo.com/docs/errors#github_linker_removed), and once they leave the organization, with [`github_access_lost`](https://basemodo.com/docs/errors#github_access_lost), until someone who can links the App again.
 
 ## Secrets stay out of the repository
 

@@ -38,7 +38,8 @@ timeout = "5m"
 - A sleeping App is woken for its run.
 - Each run's output and exit code go into the App's [Logs](https://basemodo.com/docs/cli/logs).
 - On Pro and Workspace Plans, a run that fails or times out is tried again up to 3 times, after 1, 2 and 4 minutes; the Logs say when (see [Plans](https://basemodo.com/docs/plans#logs-backups-and-cron-retries)).
+- On every Plan, a run Basemodo itself could not start (the Logs say "Basemodo could not start the App for this run.") counts as failed and is tried again the same way, up to 3 times.
 
-Repeat `[[cron]]` for several. Names must be unique among workers and cron entries, and cannot be `web`.
+Repeat `[[cron]]` for several. Names must be unique among workers and cron entries, and cannot be `web` or `basemodo`, the name Basemodo's own lines in the Logs go by.
 
 Keys: [`cron.schedule`](https://basemodo.com/docs/manifest#cron.schedule), [`cron.timezone`](https://basemodo.com/docs/manifest#cron.timezone), [`cron.timeout`](https://basemodo.com/docs/manifest#cron.timeout), and the rest on [the manifest's page](https://basemodo.com/docs/manifest).

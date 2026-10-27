@@ -62,7 +62,7 @@ name = "lunch-rota"
 
 ### `public_paths`
 
-Paths that bypass sign-in, for webhooks, under stricter rate and size limits; `/*` at the end opens every path under it.
+Paths that bypass sign-in, for webhooks, under stricter rate and size limits; `/*` at the end opens every path under it. A Deploy that adds or widens one is the Owner's, with `--allow-public`.
 
 ```toml
 public_paths = ["/webhooks/stripe", "/hooks/*"]
@@ -235,7 +235,7 @@ What the App's Callers, the other Apps of its Owner named to call it, may reach.
 
 ### `callers.paths`
 
-The paths the App's Callers may reach, matched as `public_paths` are (`/*` at the end for every path under it); nothing else is reachable to them, and without any, naming a Caller opens nothing.
+The paths the App's Callers may reach, matched as `public_paths` are (`/*` at the end for every path under it); nothing else is reachable to them, and without any, naming a Caller opens nothing. A Deploy that adds or widens one is the Owner's, with `--allow-public`.
 
 ```toml
 [callers]

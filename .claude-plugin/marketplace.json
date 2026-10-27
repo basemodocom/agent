@@ -10,7 +10,7 @@
       "name": "basemodo",
       "source": "./",
       "description": "Deploy, share and fix Apps on Basemodo, the cloud for small software, from your agent: Basemodo's Skills, and its Remote MCP to act through.",
-      "version": "0.1.0"
+      "version": "0.1.1"
     }
   ]
 }
